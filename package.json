@@ -80,7 +80,8 @@
     "chokidar": "^3.5.3",
     "juice": "^8.1.0",
     "postcss": "^8.4.18",
-    "postcss-load-config": "^4.0.1"
+    "postcss-load-config": "^4.0.1",
+    "webpack": "^5.74.0"
   },
   "bin": {
     "inline-tailwindcss": "bin/inline-tailwindcss.js"
