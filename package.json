@@ -76,6 +76,7 @@
   "dependencies": {
     "@types/browser-sync": "^2.26.3",
     "browser-sync": "^2.27.10",
+    "chokidar": "^3.5.3",
     "juice": "^8.1.0",
     "postcss": "^8.4.18",
     "postcss-load-config": "^4.0.1"
