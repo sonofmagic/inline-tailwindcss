@@ -13,40 +13,41 @@ const isDev = process.env.NODE_ENV === 'development'
 const dependencies = pkg.dependencies as Record<string, string> | undefined
 
 const config: RollupOptions = {
-  input: 'src/index.ts',
-  // { index: 'src/index.ts', cli: 'src/cli.ts' },
+  // input: 'src/index.ts',
+  input: { index: 'src/index.ts', cli: 'src/cli.ts' },
   output: [
-    {
-      file: pkg.main,
-      format: 'cjs',
-      sourcemap: isDev,
-      exports: 'auto',
-      plugins: [
-        isProd
-          ? visualizer({
-            filename: 'stats/cjs.html'
-          })
-          : undefined
-      ]
-    },
-    {
-      format: 'esm',
-      file: pkg.module,
-      sourcemap: isDev,
-      plugins: [
-        isProd
-          ? visualizer({
-            filename: 'stats/esm.html'
-          })
-          : undefined
-      ]
-    }
     // {
-    //   dir: 'dist',
+    //   file: pkg.main,
     //   format: 'cjs',
     //   sourcemap: isDev,
-    //   exports: 'auto'
+    //   exports: 'auto',
+    //   plugins: [
+    //     isProd
+    //       ? visualizer({
+    //           filename: 'stats/cjs.html'
+    //         })
+    //       : undefined
+    //   ]
     // },
+    // {
+    //   format: 'esm',
+    //   file: pkg.module,
+    //   sourcemap: isDev,
+    //   plugins: [
+    //     isProd
+    //       ? visualizer({
+    //           filename: 'stats/esm.html'
+    //         })
+    //       : undefined
+    //   ]
+    // }
+    {
+      dir: 'dist',
+      format: 'cjs',
+      sourcemap: isDev,
+      exports: 'auto'
+      // plugins: [isProd ? visualizer() : undefined]
+    }
   ],
 
   plugins: [
