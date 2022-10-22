@@ -21,3 +21,7 @@ export function cwdResolve(...paths: string[]) {
 export function basename(uri: string, suffix?: string | undefined) {
   return path.basename(uri, suffix)
 }
+
+export function readdir(dirpath: string) {
+  return fs.readdir(dirpath)
+}

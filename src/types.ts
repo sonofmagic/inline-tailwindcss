@@ -4,6 +4,7 @@ export interface UserDefinedOptions {
   tailwindConfigPath?: string
   baseCss?: string
   outDir?: string
+  write?: boolean
 }
 
 export interface InternalOptions extends Required<UserDefinedOptions> {

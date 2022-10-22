@@ -1,6 +1,6 @@
 import fs from 'fs/promises'
 import defu from 'defu'
-import { cwdResolve } from './util'
+import { cwdResolve, exist } from './util'
 import type { InternalOptions, UserDefinedOptions } from './types'
 
 export async function getOptions(
@@ -10,14 +10,16 @@ export async function getOptions(
     filepath: cwdResolve('index.html'),
     tailwindConfigPath: cwdResolve('tailwind.config'),
     baseCss: `@tailwind utilities;`,
-    outDir: cwdResolve('dist')
+    outDir: cwdResolve('dist'),
+    write: true
   }
   const opt = defu(options, defaultConfig) as InternalOptions
-  try {
-    await fs.access(opt.filepath)
+
+  const isExisted = await exist(opt.filepath)
+  if (isExisted) {
     const html = await fs.readFile(opt.filepath, 'utf-8')
     opt.html = html
-  } catch (error) {
+  } else {
     console.warn(`File not existed: ${opt.filepath}`)
   }
 

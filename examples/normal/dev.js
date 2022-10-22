@@ -1,8 +1,6 @@
-const { getInlineHtml } = require('../..')
-const fs = require('fs/promises')
+const { build } = require('../..')
 
 async function main() {
-  const html = await getInlineHtml()
-  await fs.writeFile('dist/index.html', html, 'utf-8')
+  await build()
 }
 main()

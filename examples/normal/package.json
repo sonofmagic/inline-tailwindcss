@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "node ../../dist/cli.js dev",
-    "build": "node dev"
+    "build": "node ../../dist/cli.js build",
+    "build:script": "node dev"
   },
   "keywords": [],
   "author": "",
