@@ -1,26 +1,78 @@
-# npm-lib-rollup-template
+# inline-tailwindcss
 
-本人用于编写的一个 `npm` 包的一个模板
+> use tailwindcss for HTML emails and Embedding HTML in 3rd-party websites
 
-- 使用 `tsc` 或者 `rollup` 打包
-- 使用 `jest` 设置作为单元测试
-- 使用 `eslint` 来规范代码风格，默认风格为 `standard`
-- 输出 `dist` -> `cjs`,`esm` and `.d.ts`
+- [inline-tailwindcss](#inline-tailwindcss)
+  - [How to use?](#how-to-use)
+    - [Install](#install)
+    - [CLI](#cli)
+      - [`inline-tailwindcss dev`](#inline-tailwindcss-dev)
+      - [`inline-tailwindcss build`](#inline-tailwindcss-build)
+    - [JS API](#js-api)
+  - [Options](#options)
 
-## scripts
+## How to use?
 
-### rename
+### Install
 
-执行 `npm run init:rename`
- 
-作用为替换 `package.json` 中默认包含的所有名称为 `npm-lib-rollup-template` 的字段
+`npm i -D inline-tailwindcss` / `yarn add -D inline-tailwindcss`
 
-默认替换为新建代码仓库的文件夹名称！
+### CLI
 
-### bin
+and put your html fragments into this folder:
 
-执行 `npm run init:bin`
- 
-作用为 `package.json`  添加 `files` 和 `bin`，同时生成 `bin/{{pkg.name}}.js` 和 `src/cli.ts` 文件
+`index.html`:
 
+```html
+<h1 class="text-3xl font-bold underline text-pink-500 flex h-full ">
+  Hello world!
+</h1>
+```
 
+#### `inline-tailwindcss dev`
+
+it will generate inline html in your `dist/*.html` files and keep watching your file changes.
+
+#### `inline-tailwindcss build`
+
+generate files without watch
+
+### JS API
+
+```js
+// cjs
+const { build } = require('inline-tailwindcss')
+
+await build()
+```
+
+## Options
+
+```ts
+export interface UserDefinedOptions {
+  /**
+   * @description html file abs path
+   */
+  filepath?: string
+  /**
+   * @description tailwind config path
+   * @default `process.cwd() + tailwind.config.js`
+   */
+  tailwindConfigPath?: string
+  /**
+   * @description base tailwindcss
+   * @default `@tailwind utilities;`
+   */
+  baseCss?: string
+  /**
+   * @description out put dir
+   * @default 'dist''
+   */
+  outDir?: string
+  /**
+   * @description if write to disk
+   * @default true
+   */
+  write?: boolean
+}
+```
