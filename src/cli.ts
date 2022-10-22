@@ -1,8 +1,10 @@
-import args from 'args'
+import minimist from 'minimist'
+import { dev } from './dev'
+import { cwdResolve } from './util'
+const argv = minimist(process.argv.slice(2))
 
-args.command('serve', 'Serve your static site', undefined, ['s'])
+const _ = argv._
 
-const flags = args.parse(process.argv)
-
-if (flags.serve) {
+if (_.includes('dev')) {
+  dev(['*.html', 'tailwind.config.js'].map((x) => cwdResolve(x)))
 }

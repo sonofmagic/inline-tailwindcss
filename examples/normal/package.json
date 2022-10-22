@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node dev"
+    "dev": "node ../../dist/cli.js dev",
+    "build": "node dev"
   },
   "keywords": [],
   "author": "",
