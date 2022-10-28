@@ -1,3 +1,5 @@
+import type { Options as JuiceOptions } from 'juice'
+
 export interface UserDefinedOptions {
   /**
    * @description html file abs path
@@ -23,6 +25,10 @@ export interface UserDefinedOptions {
    * @default true
    */
   write?: boolean
+  /**
+   * @description juiceOptions
+   */
+  juiceOptions?: JuiceOptions
 }
 
 export interface InternalOptions extends Required<UserDefinedOptions> {

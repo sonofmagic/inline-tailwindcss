@@ -1,6 +1,6 @@
 {
   "name": "inline-tailwindcss",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "use tailwindcss for HTML emails and Embedding HTML in 3rd-party websites",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -31,7 +31,12 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "keywords": [],
+  "keywords": [
+    "tailwindcss",
+    "inline",
+    "email",
+    "Embedding"
+  ],
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
   "bugs": {

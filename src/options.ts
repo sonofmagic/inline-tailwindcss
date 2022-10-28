@@ -11,7 +11,8 @@ export async function getOptions(
     tailwindConfigPath: cwdResolve('tailwind.config'),
     baseCss: `@tailwind utilities;`,
     outDir: cwdResolve('dist'),
-    write: true
+    write: true,
+    juiceOptions: {}
   }
   const opt = defu(options, defaultConfig) as InternalOptions
 

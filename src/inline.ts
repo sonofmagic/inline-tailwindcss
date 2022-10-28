@@ -16,7 +16,10 @@ async function getStyle(options: InternalOptions) {
 
 async function getInlineHtml(options: InternalOptions) {
   const css = await getStyle(options)
-  const result = juice(`<style>${css}</style>${options.html}`)
+  const result = juice(
+    `<style>${css}</style>${options.html}`,
+    options.juiceOptions
+  )
   return result
 }
 

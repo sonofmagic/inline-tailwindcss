@@ -5,9 +5,10 @@
 - [inline-tailwindcss](#inline-tailwindcss)
   - [How to use?](#how-to-use)
     - [Install](#install)
+    - [Create tailwind.config.js](#create-tailwindconfigjs)
     - [CLI](#cli)
-      - [`inline-tailwindcss dev`](#inline-tailwindcss-dev)
-      - [`inline-tailwindcss build`](#inline-tailwindcss-build)
+      - [`npx inline-tailwindcss dev`](#npx-inline-tailwindcss-dev)
+      - [`npx inline-tailwindcss build`](#npx-inline-tailwindcss-build)
     - [JS API](#js-api)
   - [Options](#options)
 
@@ -15,13 +16,17 @@
 
 ### Install
 
-`npm i -D inline-tailwindcss` / `yarn add -D inline-tailwindcss`
+`npm i -D inline-tailwindcss tailwindcss` / `yarn add -D inline-tailwindcss tailwindcss`
+
+### Create tailwind.config.js
+
+`npx tailwindcss init`
 
 ### CLI
 
 and put your html fragments into this folder:
 
-`index.html`:
+create a html file: `index.html`:
 
 ```html
 <h1 class="text-3xl font-bold underline text-pink-500 flex h-full ">
@@ -29,11 +34,11 @@ and put your html fragments into this folder:
 </h1>
 ```
 
-#### `inline-tailwindcss dev`
+#### `npx inline-tailwindcss dev`
 
 it will generate inline html in your `dist/*.html` files and keep watching your file changes.
 
-#### `inline-tailwindcss build`
+#### `npx inline-tailwindcss build`
 
 generate files without watch
 
@@ -74,5 +79,9 @@ export interface UserDefinedOptions {
    * @default true
    */
   write?: boolean
+  /**
+   * @description juiceOptions
+   */
+  juiceOptions?: JuiceOptions
 }
 ```
